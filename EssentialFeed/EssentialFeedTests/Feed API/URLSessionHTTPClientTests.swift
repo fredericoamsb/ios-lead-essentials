@@ -42,7 +42,7 @@ class URLSessionHTTPClientTests: XCTestCase {
 
         let receivedError = resultErrorFor(data: nil, response: nil, error: requestError)
 
-//        XCTAssertEqual(receivedError as NSError?, requestError) TODO: fix
+        XCTAssertEqual(receivedError?.localizedDescription, requestError.localizedDescription)
     }
 
     func test_getFromURL_failsOnAllInvalidRepresentationCases() {
@@ -175,7 +175,6 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
 
         override class func canInit(with request: URLRequest) -> Bool {
-            requestObserver?(request)
             return true
         }
 
@@ -184,6 +183,11 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
 
         override func startLoading() {
+            if let requestObserver = URLProtocolStub.requestObserver {
+                client?.urlProtocolDidFinishLoading(self)
+                return requestObserver(request)
+            }
+
             if let data = URLProtocolStub.stub?.data {
                 client?.urlProtocol(self, didLoad: data)
             }
