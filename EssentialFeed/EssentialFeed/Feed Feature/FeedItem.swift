@@ -1,5 +1,8 @@
 //
-//  Copyright © Essential Developer. All rights reserved.
+//  RemoteFeedLoader.swift
+//  EssentialFeed
+//
+//  Created by Fred on 06/05/25.
 //
 
 import Foundation
