@@ -5,7 +5,7 @@
 //  Created by Fred on 11/07/25.
 //
 
-import EssentialFeed
+internal import EssentialFeed
 
 final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
     private let feedLoader: FeedLoader

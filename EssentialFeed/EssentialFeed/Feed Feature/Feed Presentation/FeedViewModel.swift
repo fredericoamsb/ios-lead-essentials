@@ -5,8 +5,6 @@
 //  Created by Fred on 09/07/25.
 //
 
-import EssentialFeed
-
-struct FeedViewModel {
-    let feed: [FeedImage]
+public struct FeedViewModel {
+    public let feed: [FeedImage]
 }

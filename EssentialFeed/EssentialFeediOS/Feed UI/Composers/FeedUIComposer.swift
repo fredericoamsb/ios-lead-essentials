@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import EssentialFeed
+public import EssentialFeed
 
 public final class FeedUIComposer {
     private init() {}
@@ -23,7 +23,8 @@ public final class FeedUIComposer {
             feedView: FeedViewAdapter(
                 controller: feedController,
                 imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader)),
-            loadingView: WeakRefVirtualProxy(feedController))
+            loadingView: WeakRefVirtualProxy(feedController),
+            errorView: WeakRefVirtualProxy(feedController))
 
         return feedController
     }

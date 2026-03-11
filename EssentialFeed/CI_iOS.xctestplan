@@ -9,10 +9,17 @@
     }
   ],
   "defaultOptions" : {
-
+    "testExecutionOrdering" : "random",
+    "threadSanitizerEnabled" : true
   },
   "testTargets" : [
-
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed.xcodeproj",
+        "identifier" : "B64987162E1C457400E44051",
+        "name" : "EssentialFeediOSTests"
+      }
+    }
   ],
   "version" : 1
 }
